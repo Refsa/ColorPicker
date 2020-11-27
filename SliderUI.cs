@@ -5,42 +5,23 @@ using UnityEngine.EventSystems;
 
 namespace Refsa.UI.ColorPicker
 {
-    public class SliderUI : MonoBehaviour, IPointerDownHandler
+    public class SliderUI : SliderUIBase
     {
-        [SerializeField] GUIEvent knob;
-
-        RectTransform thisTransform;
-        RectTransform knobTransform;
-
-        public float Percent { get; private set; }
-
-        public event System.Action<float> valueChanged;
-
-        void Start()
-        {
-            knob.mouseDrag += OnKnobDrag;
-
-            thisTransform = GetComponent<RectTransform>();
-            knobTransform = knob.GetComponent<RectTransform>();
-
-            OnKnobDrag(Vector2.zero);
-        }
-
-        void OnAreaClicked(Vector2 pos)
+        protected override void OnAreaClicked(Vector2 pos)
         {
             Vector3 newPos = new Vector3(pos.x, knob.transform.position.y, knob.transform.position.z);
 
             TrySetKnob(pos);
         }
 
-        void OnKnobDrag(Vector2 delta)
+        protected override void OnKnobDrag(Vector2 delta)
         {
             RectTransform knobTransform = knob.GetComponent<RectTransform>();
             Vector3 newPos = knobTransform.position + new Vector3(delta.x, 0, 0);
             TrySetKnob(newPos);            
         }
 
-        void TrySetKnob(Vector2 pixelPos)
+        public override void TrySetKnob(Vector2 pixelPos)
         {
             var rect = thisTransform.rect;
             rect.size *= thisTransform.lossyScale;
@@ -55,10 +36,10 @@ namespace Refsa.UI.ColorPicker
 
             knobTransform.localPosition = new Vector3(knobTransform.localPosition.x, 0f, 0f);
 
-            valueChanged?.Invoke(Percent);
+            DispatchValueChanged();
         }
 
-        public void OnPointerDown(PointerEventData eventData)
+        public override void OnPointerDown(PointerEventData eventData)
         {
             OnAreaClicked(eventData.pressPosition);
             knob.SetState(GUIEvent.State.Drag);

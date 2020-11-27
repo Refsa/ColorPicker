@@ -9,9 +9,11 @@ namespace Refsa.UI.ColorPicker
     public class ColorPickerUI : MonoBehaviour
     {
         [SerializeField] AreaSliderUI colorPicker;
-        [SerializeField] SliderUI hueSlider;
+        [SerializeField] SliderUIBase hueSlider;
 
         Color selectedColor;
+
+        public Color SelectedColor => selectedColor;
 
         void Start()
         {

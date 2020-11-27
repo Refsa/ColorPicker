@@ -121,11 +121,41 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &755741315 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4827775022855179529, guid: 2651a0de46fa19346aef539b4b0c04dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 3545768409602078232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c5558cf918c284b83ac93b391ec2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &975902637 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5891424483632316247, guid: 664c353c38f07574185eaa35a07c372c,
     type: 3}
   m_PrefabInstance: {fileID: 5891424484268337402}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1215375137 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5581254374837222371, guid: 2651a0de46fa19346aef539b4b0c04dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 3545768409602078232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf089bb3252374d499d629860ffe55f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1417990543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3545768410885842839, guid: 2651a0de46fa19346aef539b4b0c04dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 3545768409602078232}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1417990544 stripped
 RectTransform:
@@ -133,6 +163,20 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3545768409602078232}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1417990545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417990543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc30c66aed95da4a9dd1057b60992fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorPicker: {fileID: 755741315}
+  hueSlider: {fileID: 1215375137}
 --- !u!1 &1755865301
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,11 +543,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CircleColorPicker
       objectReference: {fileID: 0}
-    - target: {fileID: 3545768410885842839, guid: 2651a0de46fa19346aef539b4b0c04dc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2651a0de46fa19346aef539b4b0c04dc, type: 3}
 --- !u!1001 &5891424484268337402
@@ -517,6 +556,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ColorPickerUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891424483632316246, guid: 664c353c38f07574185eaa35a07c372c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5891424483632316247, guid: 664c353c38f07574185eaa35a07c372c,
         type: 3}
@@ -622,16 +666,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5891424485341313394, guid: 664c353c38f07574185eaa35a07c372c,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5933840602217717687, guid: 664c353c38f07574185eaa35a07c372c,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 664c353c38f07574185eaa35a07c372c, type: 3}
