@@ -2,39 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SliderUI : MonoBehaviour
+namespace Refsa.UI.ColorPicker
 {
-    [SerializeField] GUIEvent knob;
-
-    RectTransform thisTransform;
-
-    public float Percent {get; private set;}
-
-    public event System.Action<float> sliderValueChanged;
-
-    void Start()
+    public class SliderUI : MonoBehaviour
     {
-        knob.mouseDrag += OnKnobDrag;
-        thisTransform = GetComponent<RectTransform>();
-    }
+        [SerializeField] GUIEvent knob;
 
-    void OnKnobDrag(Vector2 delta)
-    {
-        RectTransform knobTransform = knob.GetComponent<RectTransform>();
+        RectTransform thisTransform;
 
-        Vector3 newPos = knobTransform.position + new Vector3(delta.x, 0, 0);
+        public float Percent { get; private set; }
 
-        var rect = thisTransform.rect;
-        rect.size *= 1.5f;
-        rect.center = (Vector2)thisTransform.position;
+        public event System.Action<float> sliderValueChanged;
 
-        if (rect.Contains(newPos))
+        void Start()
         {
-            knobTransform.position = newPos;
+            knob.mouseDrag += OnKnobDrag;
+            thisTransform = GetComponent<RectTransform>();
         }
 
-        Percent = (knobTransform.localPosition.x / thisTransform.sizeDelta.x) + 0.5f;
+        void OnKnobDrag(Vector2 delta)
+        {
+            RectTransform knobTransform = knob.GetComponent<RectTransform>();
 
-        sliderValueChanged?.Invoke(Percent);
+            Vector3 newPos = knobTransform.position + new Vector3(delta.x, 0, 0);
+
+            var rect = thisTransform.rect;
+            rect.size *= 1.5f;
+            rect.center = (Vector2)thisTransform.position;
+
+            if (rect.Contains(newPos))
+            {
+                knobTransform.position = newPos;
+            }
+
+            Percent = (knobTransform.localPosition.x / thisTransform.sizeDelta.x) + 0.5f;
+
+            sliderValueChanged?.Invoke(Percent);
+        }
     }
 }
