@@ -15,24 +15,26 @@ namespace Refsa.UI.ColorPicker
 
         public Color SelectedColor => selectedColor;
 
+        public event System.Action<Color> colorChanged;
+
         void Start()
         {
             colorPicker.valueChanged += (value) =>
             {
                 selectedColor = Color.HSVToRGB(hueSlider.Percent, value.x, value.y);
                 colorPicker.SetKnobColor(selectedColor);
+                
+                colorChanged?.Invoke(selectedColor);
             };
 
             hueSlider.valueChanged += (percent) =>
             {
-                colorPicker.SetKnobColor(Color.HSVToRGB(percent, colorPicker.NormalizedPosition.x, colorPicker.NormalizedPosition.y));
-                colorPicker.GetComponent<RawImage>().material.SetFloat("_Hue", percent);
+                selectedColor = Color.HSVToRGB(percent, colorPicker.NormalizedPosition.x, colorPicker.NormalizedPosition.y);
+                colorPicker.SetKnobColor(selectedColor);
+                colorPicker.GetComponent<RawImage>().materialForRendering.SetFloat("_Hue", percent);
+
+                colorChanged?.Invoke(selectedColor);
             };
-        }
-
-        private void Update()
-        {
-
         }
     }
 }

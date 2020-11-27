@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 5302513168012756597}
   - component: {fileID: 1197670144909707270}
   - component: {fileID: 4827775022855179529}
+  - component: {fileID: 1188767576}
   m_Layer: 2
   m_Name: ColorPicker
   m_TagString: Untagged
@@ -262,6 +263,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knob: {fileID: 7424854494500770707}
+--- !u!114 &1188767576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185825428844519542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9455f320f9b88aa4495e5313186f838f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1974217094623643566
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +374,7 @@ GameObject:
   - component: {fileID: 3545768410885842824}
   - component: {fileID: 1417990545}
   m_Layer: 5
-  m_Name: CircleColorPicker
+  m_Name: RadialColorPicker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -376,7 +389,7 @@ RectTransform:
   m_GameObject: {fileID: 3545768410885842839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1215375134}
   - {fileID: 1341186093534965787}
