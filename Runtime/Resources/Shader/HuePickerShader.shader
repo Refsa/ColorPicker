@@ -1,4 +1,4 @@
-﻿Shader "Unlit/HuePickerShader"
+﻿Shader "Refsa/ColorPicker/HuePickerShader"
 {
     Properties
     {

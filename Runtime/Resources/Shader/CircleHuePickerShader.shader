@@ -1,4 +1,4 @@
-﻿Shader "Unlit/CircleHuePickerShader"
+﻿Shader "Refsa/ColorPicker/CircleHuePickerShader"
 {
     Properties
     {
