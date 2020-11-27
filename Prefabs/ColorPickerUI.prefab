@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -211,9 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc30c66aed95da4a9dd1057b60992fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorPicker: {fileID: 5891424485341313405}
-  huePicker: {fileID: 3602811083583662734}
-  colorPickerEvent: {fileID: 5372934878402714146}
+  colorPicker: {fileID: 5891424484268337405}
   hueSlider: {fileID: 2112327787}
 --- !u!1 &5891424485341313404
 GameObject:
@@ -226,8 +224,9 @@ GameObject:
   - component: {fileID: 5891424485341313405}
   - component: {fileID: 5891424485341313395}
   - component: {fileID: 5891424485341313394}
+  - component: {fileID: 5891424484268337405}
   m_Layer: 2
-  m_Name: ColorPickerPreview
+  m_Name: ColorPicker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,7 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: b0f39d0a6daebf648a7a5687dedc00bf, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -287,6 +286,19 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &5891424484268337405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891424485341313404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c5558cf918c284b83ac93b391ec2ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knob: {fileID: 5372934878402714146}
 --- !u!1 &7806824471134888664
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 65bb5d75c2e214f4e824e952ce330dcc, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

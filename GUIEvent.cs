@@ -63,9 +63,14 @@ public class GUIEvent : MonoBehaviour, IPointerDownHandler, IPointerClickHandler
             mouseDrag?.Invoke(mouseDelta);
         }
 
-        if ((state & State.Drag) != 0 && (state & State.Over) == 0 && Input.GetKeyUp(KeyCode.Mouse0))
+        if ((state & State.Drag) != 0 && Input.GetKeyUp(KeyCode.Mouse0))
         {
-            state = State.None;
+            state &= ~State.Drag;
         }
+    }
+
+    public void SetState(State state)
+    {
+        this.state |= state;
     }
 }
