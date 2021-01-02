@@ -2,13 +2,11 @@
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
         _CenterRadius ("Center Radius", Range(0.0, 0.49)) = 0.25
     }
     SubShader
     {
         Tags { "RenderType"="Transparent" "Queue"="Transparent" }
-        LOD 100
         Blend SrcAlpha OneMinusSrcAlpha
 
         Pass

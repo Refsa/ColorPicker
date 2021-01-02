@@ -6,35 +6,20 @@ using UnityEngine.UI;
 
 namespace Refsa.UI.ColorPicker
 {
-    public class AreaSliderUI : MonoBehaviour, IPointerDownHandler
+    public class AreaSliderUI : SliderUIBase<Vector2>
     {
-        [SerializeField] GUIEvent knob;
-
-        public event System.Action<Vector2> valueChanged;
-
-        public Vector2 NormalizedPosition { get; private set; }
-
-        RectTransform thisTransform;
-
-        void Start()
-        {
-            thisTransform = GetComponent<RectTransform>();
-
-            knob.mouseDrag += OnKnobDrag;
-        }
-
-        void OnKnobDrag(Vector2 delta)
+        protected override void OnKnobDrag(Vector2 delta)
         {
             Vector3 newPos = knob.transform.position + (Vector3)delta;
 
             TrySetKnob(newPos);
         }
 
-        void TrySetKnob(Vector2 pixelPos)
+        public override void TrySetKnob(Vector2 pixelPos)
         {
-            var rect = thisTransform.rect;
-            rect.size *= thisTransform.lossyScale;
-            rect.center = (Vector2)thisTransform.position;
+            var rect = container.rect;
+            rect.size *= container.lossyScale;
+            rect.center = (Vector2)container.position;
 
             if (pixelPos.x > rect.xMin && pixelPos.x < rect.xMax)
             {
@@ -45,8 +30,8 @@ namespace Refsa.UI.ColorPicker
                 knob.transform.position = new Vector3(knob.transform.position.x, pixelPos.y, knob.transform.position.z);
             }
 
-            NormalizedPosition = (knob.transform.localPosition / thisTransform.rect.size) + Vector2.one * 0.5f;
-            valueChanged?.Invoke(NormalizedPosition);
+            Value = (knob.transform.localPosition / container.rect.size) + Vector2.one * 0.5f;
+            DispatchValueChanged();
         }
 
         public void SetKnobColor(Color color)
@@ -54,7 +39,7 @@ namespace Refsa.UI.ColorPicker
             knob.GetComponent<Image>().color = color;
         }
 
-        public void OnPointerDown(PointerEventData eventData)
+        public override void OnPointerDown(PointerEventData eventData)
         {
             TrySetKnob(eventData.position);
             knob.SetState(GUIEvent.State.Drag);

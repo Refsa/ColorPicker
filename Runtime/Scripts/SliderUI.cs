@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace Refsa.UI.ColorPicker
 {
-    public class SliderUI : SliderUIBase
+    public class SliderUI : SliderUIBase<float>
     {
         protected override void OnAreaClicked(Vector2 pos)
         {
@@ -23,16 +23,16 @@ namespace Refsa.UI.ColorPicker
 
         public override void TrySetKnob(Vector2 pixelPos)
         {
-            var rect = thisTransform.rect;
-            rect.size *= thisTransform.lossyScale;
-            rect.center = (Vector2)thisTransform.position;
+            var rect = container.rect;
+            rect.size *= container.lossyScale;
+            rect.center = (Vector2)container.position;
 
             if (rect.Contains(pixelPos))
             {
                 knobTransform.position = pixelPos;
             }
 
-            Percent = (knobTransform.localPosition.x / thisTransform.sizeDelta.x) + 0.5f;
+            Value = (knobTransform.localPosition.x / container.sizeDelta.x) + 0.5f;
 
             knobTransform.localPosition = new Vector3(knobTransform.localPosition.x, 0f, 0f);
 

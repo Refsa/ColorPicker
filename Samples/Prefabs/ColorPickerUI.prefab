@@ -248,10 +248,10 @@ RectTransform:
   m_Father: {fileID: 5891424483632316247}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -292.5}
-  m_SizeDelta: {x: 600, y: 585}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 7.5}
+  m_SizeDelta: {x: 0, y: -15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5891424485341313395
 CanvasRenderer:
@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c5558cf918c284b83ac93b391ec2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  container: {fileID: 5891424483632316247}
   knob: {fileID: 5372934878402714146}
 --- !u!114 &1285566374
 MonoBehaviour:
@@ -436,9 +437,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 300, y: 7.5}
-  m_SizeDelta: {x: 600, y: 15}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 7.5}
+  m_SizeDelta: {x: 0, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6446253375754109297
 CanvasRenderer:
@@ -491,7 +492,7 @@ MonoBehaviour:
   m_MinHeight: 15
   m_PreferredWidth: -1
   m_PreferredHeight: 15
-  m_FlexibleWidth: -1
+  m_FlexibleWidth: 1
   m_FlexibleHeight: 0
   m_LayoutPriority: 1
 --- !u!114 &2112327787
@@ -506,4 +507,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d26ed6fbbbebc847ab688a28943d218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  container: {fileID: 5891424483632316247}
   knob: {fileID: 1193591122824781756}

@@ -88,6 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf089bb3252374d499d629860ffe55f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  container: {fileID: 3545768410885842824}
   knob: {fileID: 8920977042559804109}
 --- !u!1 &1565944492
 GameObject:
@@ -262,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5c5558cf918c284b83ac93b391ec2ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  container: {fileID: 3545768410885842824}
   knob: {fileID: 7424854494500770707}
 --- !u!114 &1188767576
 MonoBehaviour:

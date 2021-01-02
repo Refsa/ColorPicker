@@ -5,44 +5,37 @@ using UnityEngine.EventSystems;
 
 namespace Refsa.UI.ColorPicker
 {
-    public abstract class SliderUIBase : MonoBehaviour, IPointerDownHandler
+    public abstract class SliderUIBase<T> : MonoBehaviour, IPointerDownHandler
     {
+        [SerializeField] protected RectTransform container;
         [SerializeField] protected GUIEvent knob;
 
-        protected RectTransform thisTransform;
         protected RectTransform knobTransform;
 
-        public float Percent { get; protected set; }
+        public T Value { get; protected set; }
 
-        public event System.Action<float> valueChanged;
+        public event System.Action<T> valueChanged;
 
         void Start()
         {
             knob.mouseDrag += OnKnobDrag;
 
-            thisTransform = GetComponent<RectTransform>();
+            if (container == null)
+            {
+                Debug.LogException(new System.ArgumentNullException($"Container of {this.GetType().Name} is null"), this.gameObject);
+            }
+
             knobTransform = knob.GetComponent<RectTransform>();
 
             OnKnobDrag(Vector2.zero);
         }
 
-        protected virtual void OnAreaClicked(Vector2 pos)
-        {
-            Vector3 newPos = new Vector3(pos.x, knob.transform.position.y, knob.transform.position.z);
-
-            TrySetKnob(pos);
-        }
-
-        protected virtual void OnKnobDrag(Vector2 delta)
-        {
-            RectTransform knobTransform = knob.GetComponent<RectTransform>();
-            Vector3 newPos = knobTransform.position + new Vector3(delta.x, 0, 0);
-            TrySetKnob(newPos);            
-        }
+        protected virtual void OnAreaClicked(Vector2 pos) { }
+        protected virtual void OnKnobDrag(Vector2 delta) { }
 
         protected void DispatchValueChanged()
         {
-            valueChanged?.Invoke(Percent);
+            valueChanged?.Invoke(Value);
         }
 
         public abstract void TrySetKnob(Vector2 pixelPos);

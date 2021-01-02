@@ -9,7 +9,7 @@ namespace Refsa.UI.ColorPicker
     public class ColorPickerUI : MonoBehaviour
     {
         [SerializeField] AreaSliderUI colorPicker;
-        [SerializeField] SliderUIBase hueSlider;
+        [SerializeField] SliderUI hueSlider;
 
         Color selectedColor;
 
@@ -21,7 +21,7 @@ namespace Refsa.UI.ColorPicker
         {
             colorPicker.valueChanged += (value) =>
             {
-                selectedColor = Color.HSVToRGB(hueSlider.Percent, value.x, value.y);
+                selectedColor = Color.HSVToRGB(hueSlider.Value, value.x, value.y);
                 colorPicker.SetKnobColor(selectedColor);
                 
                 colorChanged?.Invoke(selectedColor);
@@ -29,7 +29,7 @@ namespace Refsa.UI.ColorPicker
 
             hueSlider.valueChanged += (percent) =>
             {
-                selectedColor = Color.HSVToRGB(percent, colorPicker.NormalizedPosition.x, colorPicker.NormalizedPosition.y);
+                selectedColor = Color.HSVToRGB(percent, colorPicker.Value.x, colorPicker.Value.y);
                 colorPicker.SetKnobColor(selectedColor);
                 colorPicker.GetComponent<RawImage>().materialForRendering.SetFloat("_Hue", percent);
 
